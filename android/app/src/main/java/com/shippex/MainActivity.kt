@@ -4,8 +4,18 @@ import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
 import com.facebook.react.defaults.DefaultReactActivityDelegate
+import org.devio.rn.splashscreen.SplashScreen
+
 
 class MainActivity : ReactActivity() {
+
+    @Override
+        protected List<ReactPackage> getPackages() {
+            return Arrays.<ReactPackage>asList(
+                    new MainReactPackage(),
+            new SplashScreenReactPackage()  //here
+            );
+        }
 
   /**
    * Returns the name of the main component registered from JavaScript. This is used to schedule
@@ -20,7 +30,5 @@ class MainActivity : ReactActivity() {
   override fun createReactActivityDelegate(): ReactActivityDelegate =
       DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(null)
-  }
+
 }

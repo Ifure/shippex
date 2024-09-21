@@ -8,15 +8,24 @@ import {
   NativeStackNavigationEventMap,
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
-import {NativeStackNavigatorProps} from '@react-navigation/native-stack/lib/typescript/src/types';
+import {
+  NativeStackNavigatorProps,
+  NativeStackScreenProps,
+} from '@react-navigation/native-stack/lib/typescript/src/types';
 import {JSX} from 'react/jsx-runtime';
 
 export type RootStackParamList = {
   // auth
-  ShippingScreen: {};
+  Shipping: {};
+  Profile: {};
+  Barcode: {};
+  Wallets: {};
+  LoginScreen: {};
   NotFound: undefined;
 };
 
+export type RootStackScreenProps<T extends keyof RootStackParamList> =
+  NativeStackScreenProps<RootStackParamList, T>;
 export interface IObjectMapper {
   [index: string]: string;
 }
@@ -52,6 +61,7 @@ export interface INavigatorTabIcon {
 }
 export enum Routes {
   RootTabs = 'RootTabs',
+  LoginScreen = 'LoginScreen',
   Shipping = 'Shipping',
   Wallets = 'Wallets',
   Barcode = 'BarCode',

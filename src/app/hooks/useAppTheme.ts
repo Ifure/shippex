@@ -9,8 +9,8 @@ export const useAppTheme = () => {
   const scheme = useColorScheme();
   const {width, height} = useWindowDimensions();
   const isDark = scheme === 'dark';
-  const barStyle: StatusBarStyle = isDark ? 'light-content' : 'dark-content';
-  const appTheme = isDark ? theme.DARK : theme.LIGHT;
+  const barStyle: StatusBarStyle = 'dark-content';
+  const appTheme = theme.LIGHT;
   const colors = appTheme.colors;
   const fonts = appTheme.fonts;
   const spacingH = appTheme.horizontalSpacing;

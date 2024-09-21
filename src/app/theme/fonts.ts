@@ -4,7 +4,7 @@ export const FONTS = {
   fonts: {
     caption: fontPixel(22),
     button: fontPixel(14),
-    body: fontPixel(16),
+    body: fontPixel(17),
     title: fontPixel(20),
     xs: fontPixel(12),
     sm: fontPixel(14),

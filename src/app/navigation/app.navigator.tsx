@@ -25,7 +25,6 @@ const AppStack = createNativeStackNavigator();
 const createScreenOptions =
   (colors: IThemeColor) =>
   ({route}: INavigatorScreenOptionProp): BottomTabNavigationOptions => {
-    const isIonic = IonicRoutes.includes(route.name);
     const isShippingRoute = route.name === Routes.Shipping;
     return {
       headerShown: false,
@@ -37,7 +36,14 @@ const createScreenOptions =
         backgroundColor: colors.background,
       },
       tabBarIcon: ({size, focused, color}: INavigatorTabIcon) => {
-        return <Icon focused={focused} route={route.name} />;
+        return (
+          <Icon
+            color={color}
+            focused={focused}
+            size={size}
+            route={route.name}
+          />
+        );
       },
     };
   };
@@ -51,6 +57,7 @@ const AppTabs = () => {
       <Tab.Screen name={Routes.Shipping} component={Shipping} />
       <Tab.Screen name={Routes.Barcode} component={BarCode} />
       <Tab.Screen name={Routes.Profile} component={Profile} />
+      <Tab.Screen name={Routes.Wallets} component={Wallets} />
     </Tab.Navigator>
   );
 };
